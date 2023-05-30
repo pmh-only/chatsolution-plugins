@@ -28,7 +28,7 @@ void (async () => {
         `${curr.id} - ${curr.name} (by ${curr.author})`,
         ':: Plugin List ::\n') + '\n\n' +
         'use load`<plugin_name>` to load plugin (ex: load`basic`)\n' +
-        'use refresh`` to refresh plugin list\n' +
+        'use refresh`` to refresh plugin list\n'
 
     console.log(pluginListString)
   }
