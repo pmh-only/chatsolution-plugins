@@ -29,8 +29,9 @@ void (async () => {
         `${prev}\n` +
         `${curr.id} - ${curr.name} (by ${curr.author})`,
         ':: Plugin List ::\n') + '\n\n' +
-        'use load`<plugin_name>` to load plugin (ex: load`basic`)\n' +
-        'use plist`` to refresh plugin list\n'
+        'use load`<plugin_id>` to load plugin (ex: load`basic`)\n' +
+        'use plist`` to refresh plugin list\n' +
+        'use help`<plugin_id>` to read plugin manual\n'
 
     console.log(pluginListString)
   }
@@ -50,5 +51,25 @@ void (async () => {
 
     importedPlugins.push(plugin.id)
     await import(plugin.url)
+  }
+
+  window.help = async ([pluginId]) => {
+    const plugin = plugins.find((p) => p.id === pluginId)
+
+    if (!plugin) {
+      console.log(`Plugin "${pluginId}" not found. please try again.`)
+      return
+    }
+
+    if (!plugin.manual) {
+      console.log(`Plugin "${pluginId}"'s manual not found. please try again later...`)
+      return
+    }
+
+    const manual = await fetch(plugin.manual)
+      .then((res) => res.text())
+      .catch(() => 'Fail to read manual file')
+
+    console.log(manual)
   }
 })()

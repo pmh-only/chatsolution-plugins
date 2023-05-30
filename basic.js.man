@@ -1,0 +1,8 @@
+### Plugin "basic" manual ###
+
+## macros
+
+a`<author_name>` :: change your nickname
+c`<message>`     :: send messages to room
+r`<room_id>`     :: join specific room
+r``              :: leave and move to lobby room

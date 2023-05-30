@@ -1,8 +1,21 @@
 [
   {
     "id": "basic",
-    "name": "Basic plugin",
+    "name": "Basic essential commands like c`<message>`, a`<author_name>`, r`<room_id>`",
     "author": "Minhyeok Park <opensource@pmh.codes>",
-    "url": "//c.pmh.codes/basic.js"
+    "url": "//c.pmh.codes/basic.js",
+    "manual": "//c.pmh.codes/basic.js.man"
+  },
+  {
+    "id": "dialog",
+    "name": "Very fast chatting UI powered by HTML <dialog /> tag",
+    "author": "Kanghyun Kim",
+    "url": "https://c.siwonkh.com/dialog.js"
+  },
+  {
+    "id": "notify",
+    "name": "Browser chat notification",
+    "author": "Kanghyun Kim",
+    "url": "https://c.siwonkh.com/notify.js"
   }
 ]
