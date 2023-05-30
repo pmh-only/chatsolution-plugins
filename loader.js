@@ -10,24 +10,31 @@ void (async () => {
 
   `)
 
-  const plugins =
-    await fetch('https://c.pmh.codes/plugins.json')
+  let plugins = []
+
+  async function refresh () {
+    plugins = await fetch('https://c.pmh.codes/plugins.json')
       .then((res) => res.json())
       .catch(() => ([]))
 
-  if (plugins.length < 1) {
-    console.log('Panic: unable to read plugin list')
-    return
+    if (plugins.length < 1) {
+      console.log('Panic: unable to read plugin list')
+      return
+    }
+
+    const pluginListString =
+      plugins.reduce((prev, curr) =>
+        `${prev}\n` +
+        `${curr.id} - ${curr.name} (by ${curr.author})`,
+        ':: Plugin List ::\n') + '\n\n' +
+        'use load`<plugin_name>` to load plugin (ex: load`basic`)\n' +
+        'use refresh`` to refresh plugin list\n' +
+
+    console.log(pluginListString)
   }
 
-  const pluginListString =
-    plugins.reduce((prev, curr) =>
-      `${prev}\n` +
-      `${curr.id} - ${curr.name} (by ${curr.author})`,
-      ':: Plugin List ::\n') + '\n\n' +
-      'use load`<plugin_name>` to load plugin (ex: load`basic`)'
-
-  console.log(pluginListString)
+  refresh()
+  window.refresh = refresh
 
   window.load = async ([pluginId]) => {
     const plugin = plugins.find((p) => p.id === pluginId)
@@ -36,9 +43,9 @@ void (async () => {
       return
     }
 
-    await import('//c.pmh.codes/core.js')
-    await import(plugin.url)
+    if (window.__core === undefined)
+      await import('//c.pmh.codes/core.js')
 
-    window.load = undefined
+    await import(plugin.url)
   }
 })()
