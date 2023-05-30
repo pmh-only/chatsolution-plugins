@@ -6,7 +6,7 @@ void (async () => {
   }
   
   window.__loaderImported = true
-  console.log({ type: 'system', message: 'Plugin loader imported. use plist`` to list available plugins' })
+  console.log('Plugin loader imported. use plist`` to list available plugins')
 
   await import('//c.pmh.codes/core.js')
   await import('//c.pmh.codes/basic.js')
