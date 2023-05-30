@@ -37,14 +37,12 @@ window.a = ([authorName]) => {
 }
 
 window.c = ([message]) =>
-  new Promise((resolve) => {
-    window.__core.sendBroadcast({
-      type: 'chat',
-      room,
-      author,
-      message,
-      timestamp: Date.now()
-    }, () => resolve())
+  window.__core.sendBroadcast({
+    type: 'chat',
+    room,
+    author,
+    message,
+    timestamp: Date.now()
   })
 
 window.r = ([roomId]) => {
