@@ -1,14 +1,14 @@
 [
   {
     "id": "basic",
-    "name": "Basic essential commands like c`<message>`, a`<author_name>`, r`<room_id>`",
+    "name": "Basic essential commands",
     "author": "Minhyeok Park <opensource@pmh.codes>",
     "url": "//c.pmh.codes/basic.js",
     "manual": "//c.pmh.codes/basic.js.man"
   },
   {
     "id": "dialog",
-    "name": "Very fast chatting UI powered by HTML <dialog /> tag",
+    "name": "Very fast chatting UI powered by HTML <dialog> tag",
     "author": "Kanghyun Kim",
     "url": "https://c.siwonkh.com/dialog.js"
   },

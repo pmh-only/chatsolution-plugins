@@ -28,7 +28,7 @@ void (async () => {
     const pluginListString =
       plugins.reduce((prev, curr) =>
         `${prev}\n` +
-        `${curr.id} - ${curr.name} (by ${curr.author})`,
+        `${curr.id} - ${curr.name.slice(0, 51)}${curr.name.length > 50 ? '...' : ''} (by ${curr.author})`,
         ':: Plugin List ::\n') + '\n\n' +
         'use pload`<plugin_id>` to load plugin (ex: load`basic`)\n' +
         'use plist`` to refresh plugin list\n' +
