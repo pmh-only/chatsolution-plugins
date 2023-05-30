@@ -4,7 +4,9 @@ class ChatSolutionCore {
   socket = io('wss://chatsolution.shutupandtakemy.codes')
 
   sendBroadcast (data) {
-    return this.socket.emitWithAck('broadcast', data)
+    return new Promise((resolve) => {
+      this.socket.emit('broadcast', data, () => resolve())
+    })
   }
   
   onBroadcast (fn = () => {}) {
