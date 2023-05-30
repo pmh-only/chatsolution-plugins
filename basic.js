@@ -36,7 +36,7 @@ window.a = ([authorName]) => {
   return { message: 'author name changed' }
 }
 
-window.__core.onBroadcast(([message]) => {
+window.c = ([message]) => {
   window.__core.sendBroadcast({
     type: 'chat',
     room,
@@ -46,7 +46,7 @@ window.__core.onBroadcast(([message]) => {
   })
 
   return { message: 'message sent' }
-})
+}
 
 window.r = ([roomId]) => {
   room = roomId || undefined

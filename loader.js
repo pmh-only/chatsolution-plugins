@@ -29,14 +29,16 @@ void (async () => {
 
   console.log(pluginListString)
 
-  window.load = ([pluginId]) => {
+  window.load = async ([pluginId]) => {
     const plugin = plugins.find((p) => p.id === pluginId)
     if (!plugin) {
       console.log(`Plugin "${pluginId}" not found. please try again.`)
       return
     }
 
-    import(plugin.url)
+    await import('//c.pmh.codes/core.js')
+    await import(plugin.url)
+
     window.load = undefined
   }
 })()
