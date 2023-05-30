@@ -36,17 +36,16 @@ window.a = ([authorName]) => {
   return { message: 'author name changed' }
 }
 
-window.c = ([message]) => {
-  window.__core.sendBroadcast({
-    type: 'chat',
-    room,
-    author,
-    message,
-    timestamp: Date.now()
+window.c = ([message]) =>
+  new Promise((resolve) => {
+    window.__core.sendBroadcast({
+      type: 'chat',
+      room,
+      author,
+      message,
+      timestamp: Date.now()
+    }, () => resolve())
   })
-
-  return { message: 'message sent' }
-}
 
 window.r = ([roomId]) => {
   room = roomId || undefined
