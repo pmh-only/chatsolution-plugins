@@ -10,9 +10,10 @@ void (async () => {
 
   await import('//c.pmh.codes/core.js')
   await import('//c.pmh.codes/basic.js')
+  console.log(`Core and Plugin "basic" loaded`)
 
-  let plugins = []
   let importedPlugins = ['basic']
+  let plugins = undefined
 
   async function plist () {
     plugins = await fetch('https://c.pmh.codes/plugins.json')
@@ -29,15 +30,22 @@ void (async () => {
         `${prev}\n` +
         `${curr.id} - ${curr.name} (by ${curr.author})`,
         ':: Plugin List ::\n') + '\n\n' +
-        'use load`<plugin_id>` to load plugin (ex: load`basic`)\n' +
+        'use pload`<plugin_id>` to load plugin (ex: load`basic`)\n' +
         'use plist`` to refresh plugin list\n' +
-        'use help`<plugin_id>` to read plugin manual\n'
+        'use phelp`<plugin_id>` to read plugin manual\n'
 
     console.log(pluginListString)
   }
 
   window.plist = plist
-  window.load = async ([pluginId]) => {
+  window.pload = async ([pluginId]) => {
+    console.log(`Loading plugin "${pluginId}"...`)
+    
+    if (plugins === undefined)
+      plugins = await fetch('https://c.pmh.codes/plugins.json')
+        .then((res) => res.json())
+        .catch(() => ([]))
+
     const plugin = plugins.find((p) => p.id === pluginId)
     if (!plugin) {
       console.log(`Plugin "${pluginId}" not found. please try again.`)
@@ -51,9 +59,11 @@ void (async () => {
 
     importedPlugins.push(plugin.id)
     await import(plugin.url)
+    console.log(`Plugin "${pluginId}" loaded`)
   }
 
-  window.help = async ([pluginId]) => {
+  window.phelp = async ([pluginId]) => {
+    console.log(`Loading plugin "${pluginId}"'s manual...`)
     const plugin = plugins.find((p) => p.id === pluginId)
 
     if (!plugin) {
