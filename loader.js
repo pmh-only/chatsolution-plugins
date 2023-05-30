@@ -1,18 +1,20 @@
+
 void (async () => {
-  console.log(`
+  if (window.__loaderImported === true) {
+    console.log('Panic: Plugin loader already imported.\nplease do not import plugin loader twice')
+    return
+  }
+  
+  window.__loaderImported = true
+  console.log({ type: 'system', message: 'Plugin loader imported. use plist`` to list available plugins' })
 
-    #######################
-    ### Chat Solution   ###
-    ###   Plugin Loader ###
-    #######################
-
-    Reading plugin list...
-
-  `)
+  await import('//c.pmh.codes/core.js')
+  await import('//c.pmh.codes/basic.js')
 
   let plugins = []
+  let importedPlugins = ['basic']
 
-  async function refresh () {
+  async function plist () {
     plugins = await fetch('https://c.pmh.codes/plugins.json')
       .then((res) => res.json())
       .catch(() => ([]))
@@ -28,14 +30,12 @@ void (async () => {
         `${curr.id} - ${curr.name} (by ${curr.author})`,
         ':: Plugin List ::\n') + '\n\n' +
         'use load`<plugin_name>` to load plugin (ex: load`basic`)\n' +
-        'use refresh`` to refresh plugin list\n'
+        'use plist`` to refresh plugin list\n'
 
     console.log(pluginListString)
   }
 
-  refresh()
-  window.refresh = refresh
-
+  window.plist = plist
   window.load = async ([pluginId]) => {
     const plugin = plugins.find((p) => p.id === pluginId)
     if (!plugin) {
@@ -43,9 +43,12 @@ void (async () => {
       return
     }
 
-    if (window.__core === undefined)
-      await import('//c.pmh.codes/core.js')
+    if (importedPlugins.includes(plugin.id)) {
+      console.log(`Plugin "${pluginId}" already imported.\nplease avoid import same plugin twice. (use F5 to unload plugins)`)
+      return
+    }
 
+    importedPlugins.push(plugin.id)
     await import(plugin.url)
   }
 })()
