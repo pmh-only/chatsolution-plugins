@@ -52,3 +52,11 @@ window.r = ([roomId]) => {
   room = roomId || undefined
   return { message: 'room changed' }
 }
+
+// exports for plugin devs.
+window.__basic = {
+  getAuthor: () => author,
+  setAuthor: (newAuthor) => author = newAuthor,
+  getRoom: () => room,
+  setRoom: (newRoom) => room = newRoom
+}
