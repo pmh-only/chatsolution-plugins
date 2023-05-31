@@ -27,5 +27,5 @@ window.__core.onBroadcast((data) => {
   if (data.type === 'image')
     window.__dialogutils.showDialog(
       `${data.fileName} (by ${data.author || 'Anon'})`,
-      `<img width="500" src="${data.fileUrl}">`)
+      `<details><summary>눌러서 보기/닫기</summary><hr /><img width="500" src="${data.fileUrl}"></details>`)
 })
