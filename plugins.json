@@ -1,21 +1,46 @@
 [
   {
+    "id": "core",
+    "name": "Websocket initialization codes",
+    "author": "Minhyeok Park <opensource@pmh.codes>",
+    "url": "//c.pmh.codes/core.js",
+    "manual": "//c.pmh.codes/core.js.man"
+  },
+  {
+    "id": "loader",
+    "name": "The plugin loader",
+    "author": "Minhyeok Park <opensource@pmh.codes>",
+    "url": "//c.pmh.codes/loader.js",
+    "manual": "//c.pmh.codes/loader.js.man"
+  },
+  {
     "id": "basic",
     "name": "Basic essential commands",
     "author": "Minhyeok Park <opensource@pmh.codes>",
     "url": "//c.pmh.codes/basic.js",
-    "manual": "//c.pmh.codes/basic.js.man"
+    "manual": "//c.pmh.codes/basic.js.man",
+    "deps": ["core"]
+  },
+  {
+    "id": "alias",
+    "name": "Command alias",
+    "author": "Minhyeok Park <opensource@pmh.codes>",
+    "url": "//c.pmh.codes/alias.js",
+    "manual": "//c.pmh.codes/alias.js.man",
+    "deps": ["core"]
   },
   {
     "id": "dialog",
     "name": "Very fast chatting UI powered by HTML <dialog> tag",
     "author": "Kanghyun Kim",
-    "url": "https://c.siwonkh.com/dialog.js"
+    "url": "https://c.siwonkh.com/dialog.js",
+    "deps": ["core"]
   },
   {
     "id": "notify",
     "name": "Browser chat notification",
     "author": "Kanghyun Kim",
-    "url": "https://c.siwonkh.com/notify.js"
+    "url": "https://c.siwonkh.com/notify.js",
+    "deps": ["core"]
   }
 ]

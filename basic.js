@@ -31,12 +31,12 @@ window.__core.onBroadcast((data) => {
     console.log(data)
 })
 
-window.a = ([authorName]) => {
+window.author = ([authorName]) => {
   author = authorName
   return { message: 'author name changed' }
 }
 
-window.c = ([message]) =>
+window.chat = ([message]) =>
   window.__core.sendBroadcast({
     type: 'chat',
     room,
@@ -45,7 +45,7 @@ window.c = ([message]) =>
     timestamp: Date.now()
   })
 
-window.r = ([roomId]) => {
+window.room = ([roomId]) => {
   room = roomId || undefined
   return { message: 'room changed' }
 }

@@ -1,0 +1,10 @@
+### Plugin loader manual ###
+
+## macros
+plist``            :: Show registed 3rd-party plugin list
+pload`<plugin_id>` :: Download and import plugin
+phelp`<plugin_id>` :: Download plugin manual and read
+
+## exports
+window.__loader.getPlugins()
+window.__loader.getImportedPlugins()

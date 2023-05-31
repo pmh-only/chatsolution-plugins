@@ -1,0 +1,11 @@
+### The Core ###
+
+## exports
+window.__core.sendBroadcast(data)
+window.__core.onBroadcast(() => {
+  // callback
+})
+
+window.__core.onConnect(() => {
+  // callback
+})

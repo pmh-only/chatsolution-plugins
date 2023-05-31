@@ -1,8 +1,13 @@
 ### Plugin "basic" manual ###
 
 ## macros
+author`<author_name>` :: change your nickname
+chat`<message>`       :: send messages to room
+room`<room_id>`       :: join specific room
+room``                :: leave and move to lobby room
 
-a`<author_name>` :: change your nickname
-c`<message>`     :: send messages to room
-r`<room_id>`     :: join specific room
-r``              :: leave and move to lobby room
+## exports
+window.__basic.getAuthor()
+window.__basic.setAuthor(newAuthor)
+window.__basic.getRoom()
+window.__basic.setRoom(newRoom)

@@ -1,4 +1,3 @@
-
 void (async () => {
   if (window.__loaderImported === true) {
     console.log('Panic: Plugin loader already imported.\nplease do not import plugin loader twice')
@@ -12,7 +11,7 @@ void (async () => {
   await import('//c.pmh.codes/basic.js')
   console.log(`Core and Plugin "basic" loaded`)
 
-  let importedPlugins = ['basic']
+  let importedPlugins = ['loader', 'core', 'basic']
   let plugins = undefined
 
   async function plist () {
@@ -58,8 +57,13 @@ void (async () => {
     }
 
     importedPlugins.push(plugin.id)
+
+    for (const dep of plugin.deps || [])
+      if (!importedPlugins.includes(dep))
+        await import(plugin.dep)
+
     await import(plugin.url)
-    console.log(`Plugin "${pluginId}" loaded`)
+    console.log(`Plugin "${pluginId}" + ${plugin.deps.length} dependencies loaded`)
   }
 
   window.phelp = async ([pluginId]) => {
@@ -81,5 +85,10 @@ void (async () => {
       .catch(() => 'Fail to read manual file')
 
     console.log(manual)
+  }
+
+  window.__loader = {
+    getPlugins: () => plugins,
+    getImportedPlugins: () => importedPlugins
   }
 })()

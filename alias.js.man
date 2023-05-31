@@ -1,0 +1,6 @@
+### Plugin "alias" manual ###
+
+## aliases
+author => a
+chat => c
+room => r
