@@ -67,7 +67,7 @@
     "id": "giphy",
     "name": "Send giphy image!",
     "author": "Taehyun Lim <admin@limtaehyun.dev>",
-    "url": "//gist.githubusercontent.com/noeulnight/fa34819ff721b8f28d19d02fd64f99d2/raw/giphy.js",
+    "url": "//c.pmh.codes/giphy.js",
     "deps": ["core", "dialogutils"]
   }
 ]
