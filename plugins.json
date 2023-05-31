@@ -62,5 +62,12 @@
     "author": "Minhyeok Park <opensource@pmh.codes>",
     "url": "//c.pmh.codes/img.js",
     "deps": ["core", "binaryutils", "dialogutils"]
+  },
+  {
+    "id": "giphy",
+    "name": "Send giphy image!",
+    "author": "Taehyun Lim <admin@limtaehyun.dev>",
+    "url": "//gist.githubusercontent.com/noeulnight/fa34819ff721b8f28d19d02fd64f99d2/raw/giphy.js",
+    "deps": ["core", "dialogutils"]
   }
 ]
