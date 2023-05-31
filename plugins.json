@@ -69,5 +69,12 @@
     "author": "Taehyun Lim <admin@limtaehyun.dev>",
     "url": "//c.pmh.codes/giphy.js",
     "deps": ["core", "dialogutils"]
+  },
+  {
+    "id": "pgui",
+    "name": "Plugin gui loader",
+    "author": "Taehyun Lim <admin@limtaehyun.dev>",
+    "url": "//c.siwonkh.com/pgui.js",
+    "deps": ["core", "loader", "dialogutils"]
   }
 ]
