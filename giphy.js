@@ -19,7 +19,7 @@ window.gsearch = async ([query]) => {
     throw new Error()
   }
 
-  const giphyData = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${giphykey}&q=${query}&limit=4&offset=0&rating=g&lang=en`)
+  const giphyData = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${giphykey}&q=${query}&limit=4&offset=0&rating=r&lang=en`)
     .then(async (res) => await res.json())
   
   if (giphyData.meta.status !== 200) {
