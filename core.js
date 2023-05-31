@@ -5,13 +5,13 @@ const socket = io('wss://chatsolution.shutupandtakemy.codes')
 window.__core = {
   sendBroadcast: (data) => {
     return new Promise((resolve) => {
-      this.socket.emit('broadcast', data, () => resolve())
+      socket.emit('broadcast', data, () => resolve())
     })
   },
   onBroadcast: (fn = () => {}) => {
-    this.socket.on('broadcast', fn)
+    socket.on('broadcast', fn)
   },
   onConnect: (fn = () => {}) => {
-    this.socket.on('connect', fn)
+    socket.on('connect', fn)
   }  
 }
