@@ -1,6 +1,6 @@
 import { io } from 'https://cdn.socket.io/4.6.0/socket.io.esm.min.js'
 
-socket = io('wss://chatsolution.shutupandtakemy.codes')
+const socket = io('wss://chatsolution.shutupandtakemy.codes')
 
 window.__core = {
   sendBroadcast: (data) => {
