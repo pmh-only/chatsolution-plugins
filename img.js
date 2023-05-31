@@ -18,7 +18,7 @@ window.sendImage = async () => {
       room: 'sys-binary',
       author,
       fileName: file.name,
-      fileUrl: URL.createObjectURL(file)
+      fileUrl: window.__binaryutils.blobToDataURL(file)
     })
   }
 }

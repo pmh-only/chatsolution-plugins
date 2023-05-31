@@ -16,5 +16,12 @@ window.__binaryutils = {
   
         resolve(fileInput.files || [])
       }
+    }),
+
+  blobToDataURL: (blob) =>
+    new Promise((resolve) => {
+      const reader = new FileReader()
+      reader.onloadend = () => resolve(reader.result)
+      reader.readAsDataURL(blob)
     })
 }
