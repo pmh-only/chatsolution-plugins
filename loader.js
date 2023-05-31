@@ -36,7 +36,15 @@ void (async () => {
   }
 
   window.plist = plist
-  window.pload = async ([pluginId]) => {
+  window.pload = async ([pluginId], hideAlready = false) => {
+    if (pluginId === '*') {
+      console.log(`Loading all plugins...`)
+      for (const plugin of plugins)
+        window.pload([plugin], true)
+
+      return
+    }
+
     console.log(`Loading plugin "${pluginId}"...`)
     
     const plugin = plugins.find((p) => p.id === pluginId)
@@ -46,6 +54,8 @@ void (async () => {
     }
 
     if (importedPlugins.includes(plugin.id)) {
+      if (hideAlready) return
+
       console.log(`Plugin "${pluginId}" already imported.\nplease avoid import same plugin twice. (use F5 to unload plugins)`)
       return
     }
