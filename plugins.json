@@ -76,5 +76,19 @@
     "author": "Taehyun Lim <admin@limtaehyun.dev>",
     "url": "//c.siwonkh.com/pgui.js",
     "deps": ["core", "loader", "dialogutils"]
+  },
+  {
+    "id": "broadutils",
+    "name": "Request some data to all of connected users",
+    "author": "Minhyeok Park <opensource@pmh.codes>",
+    "url": "//c.pmh.codes/broadutils.js",
+    "deps": ["core"]
+  },
+  {
+    "id": "echo",
+    "name": "Collecting connected clients info",
+    "author": "Minhyeok Park <opensource@pmh.codes>",
+    "url": "//c.pmh.codes/echo.js",
+    "deps": ["core", "broadutils"]
   }
 ]
