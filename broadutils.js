@@ -14,7 +14,7 @@ window.__broadutils = {
 
       const datas = []
       window.__core.onBroadcast((data) => {
-        if (data.room === 'sys-broadutils' && data.requestId === requestId && !data.isResponse)
+        if (data.room === 'sys-broadutils' && data.requestId === requestId && data.isResponse)
           datas.push(data)
       })
       
@@ -23,16 +23,18 @@ window.__broadutils = {
   
   onRequestReceived: (fn = () => {}) => {
     window.__core.onBroadcast((data) => {
-      function response (extra = {}) {
-        window.__core.sendBroadcast({
-          ...data,
-          ...extra,
-          isResponse: true
-        })
-      }
-
-      if (data.room === 'sys-broadutils')
+      if (data.room === 'sys-broadutils' && !data.isResponse) {
+        function response (extra = {}) {
+          window.__core.sendBroadcast({
+            ...data,
+            ...extra,
+            isResponse: true,
+            room: 'sys-broadutils'
+          })
+        }
+      
         fn(data, response)
+      }
     })
   }
 }
