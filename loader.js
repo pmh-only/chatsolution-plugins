@@ -50,22 +50,22 @@ void (async () => {
       return
     }
 
-    importedPlugins.push(plugin.id)
-
     for (const dep of plugin.deps || []) {
       if (importedPlugins.includes(dep)) continue
       const findDep = plugins.find((p) => p.id === dep)
-
+      
       if (!findDep) {
         console.log(`Dependancy plugin of "${pluginId}", "${dep}"'s not found... please try again later`)
         return
       }
-
+      
+      importedPlugins.push(findDep.id)
       await import(findDep.url)
     }
-
+    
+    importedPlugins.push(plugin.id)
     await import(plugin.url)
-    console.log(`Plugin "${pluginId}" + ${plugin.deps.length} dependencies loaded`)
+    console.log(`Plugin "${pluginId}" + ${plugin.deps?.length ?? 0} dependencies loaded`)
   }
 
   window.phelp = async ([pluginId]) => {
