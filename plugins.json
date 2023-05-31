@@ -34,7 +34,7 @@
     "name": "Very fast chatting UI powered by HTML <dialog> tag",
     "author": "Kanghyun Kim",
     "url": "//c.siwonkh.com/dialog.js",
-    "deps": ["core"]
+    "deps": ["core", "dialogutils"]
   },
   {
     "id": "notify",
