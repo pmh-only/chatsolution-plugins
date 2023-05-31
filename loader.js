@@ -40,7 +40,7 @@ void (async () => {
     if (pluginId === '*') {
       console.log(`Loading all plugins...`)
       for (const plugin of plugins)
-        window.pload([plugin], true)
+        window.pload([plugin.id], true)
 
       return
     }
