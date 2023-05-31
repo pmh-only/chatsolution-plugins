@@ -33,14 +33,34 @@
     "id": "dialog",
     "name": "Very fast chatting UI powered by HTML <dialog> tag",
     "author": "Kanghyun Kim",
-    "url": "https://c.siwonkh.com/dialog.js",
+    "url": "//c.siwonkh.com/dialog.js",
     "deps": ["core"]
   },
   {
     "id": "notify",
     "name": "Browser chat notification",
     "author": "Kanghyun Kim",
-    "url": "https://c.siwonkh.com/notify.js",
+    "url": "//c.siwonkh.com/notify.js",
     "deps": ["core"]
+  },
+  {
+    "id": "binaryutils",
+    "name": "Binary related utils",
+    "author": "Minhyeok Park <opensource@pmh.codes>",
+    "url": "//c.pmh.codes/binaryutils.js",
+    "manual": "//c.pmh.codes/binaryutils.js.man"
+  },
+  {
+    "id": "dialogutils",
+    "name": "Dialog related utils",
+    "author":"Kanghyun Kim",
+    "url": "//c.siwonkh.com/dialogutils.js"
+  },
+  {
+    "id": "img",
+    "name": "Send your images!",
+    "author": "Minhyeok Park <opensource@pmh.codes>",
+    "url": "//c.pmh.codes/img.js",
+    "deps": ["core", "binaryutils", "dialogutils"]
   }
 ]

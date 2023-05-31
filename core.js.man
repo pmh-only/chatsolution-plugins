@@ -2,7 +2,7 @@
 
 ## exports
 window.__core.sendBroadcast(data)
-window.__core.onBroadcast(() => {
+window.__core.onBroadcast((data) => {
   // callback
 })
 

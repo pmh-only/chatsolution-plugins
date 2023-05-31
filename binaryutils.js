@@ -1,9 +1,3 @@
-if (window.__core === undefined)
-  throw new Error('Please import chatsolution core first.')
-
-if (window.__basic === undefined)
-  throw new Error('Please import basic plugin first.')
-
 window.__binaryutils = {
   openFile: (accept, isMultiple) =>
     new Promise((resolve) => {

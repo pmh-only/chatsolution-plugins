@@ -1,0 +1,6 @@
+### Plugin "binaryutils" manual ###
+
+## exports
+window.__binaryutils.openFile(accept, isMultiple) :: returns FileList from browser api
+window.__binaryutils.openFile("image/*", true)
+window.__binaryutils.openFile("video/*", false)
