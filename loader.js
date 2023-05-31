@@ -12,18 +12,17 @@ void (async () => {
   console.log(`Core and Plugin "basic" loaded`)
 
   let importedPlugins = ['loader', 'core', 'basic']
-  let plugins = undefined
-
-  async function plist () {
-    plugins = await fetch('https://c.pmh.codes/plugins.json')
+  const plugins =
+    await fetch('https://c.pmh.codes/plugins.json')
       .then((res) => res.json())
       .catch(() => ([]))
 
-    if (plugins.length < 1) {
-      console.log('Panic: unable to read plugin list')
-      return
-    }
+  if (plugins.length < 1) {
+    console.log('Panic: unable to read plugin list')
+    return
+  }
 
+  async function plist () {
     const pluginListString =
       plugins.reduce((prev, curr) =>
         `${prev}\n` +
@@ -40,11 +39,6 @@ void (async () => {
   window.pload = async ([pluginId]) => {
     console.log(`Loading plugin "${pluginId}"...`)
     
-    if (plugins === undefined)
-      plugins = await fetch('https://c.pmh.codes/plugins.json')
-        .then((res) => res.json())
-        .catch(() => ([]))
-
     const plugin = plugins.find((p) => p.id === pluginId)
     if (!plugin) {
       console.log(`Plugin "${pluginId}" not found. please try again.`)

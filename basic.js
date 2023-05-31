@@ -1,14 +1,3 @@
-/**
- * Chat Solution - Basic plugin.
- * 
- * this contains:
- * * Greet user on connection.
- * * Echo message when sent
- * * Send chat message with author system
- * * Change author name
- * * Very essential Room features.
- */
-
 if (window.__core === undefined)
   throw new Error('Please import chatsolution core first.')
 
