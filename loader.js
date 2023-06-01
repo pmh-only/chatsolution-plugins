@@ -5,7 +5,7 @@ const logStyle = {
     background-color: #0dcaf0;
     color: #000;
     font-weight: bold;
-    padding: 3px 7px;
+    padding: 0px 7px;
     border-radius: 3px;`
   ],
   alert: [
@@ -14,7 +14,7 @@ const logStyle = {
     background-color: #dc3545;
     color: #ffffff;
     font-weight: bold;
-    padding: 3px 7px;
+    padding: 0px 7px;
     border-radius: 3px;
   `],
   success: [
@@ -23,7 +23,7 @@ const logStyle = {
     background-color: #198754;
     color: #ffffff;
     font-weight: bold;
-    padding: 3px 7px;
+    padding: 0px 7px;
     border-radius: 3px;
   `]
 }
