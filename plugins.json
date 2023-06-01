@@ -90,5 +90,12 @@
     "author": "Minhyeok Park <opensource@pmh.codes>",
     "url": "//c.pmh.codes/echo.js",
     "deps": ["core", "broadutils"]
+  },
+  {
+    "id": "updater",
+    "name": "Blazing fast auto plugin updater",
+    "author":"Kanghyun Kim",
+    "url": "//c.siwonkh.com/updater.js",
+    "deps": ["loader"]
   }
 ]
