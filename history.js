@@ -6,7 +6,7 @@ let disabled = false
 
 window.sendHistoryRequest = async () => {
   console.log('Histroy request packet sent...')
-  const histories = await window.__broadutils.sendRequest('history', 1000)
+  const histories = (await window.__broadutils.sendRequest('history', 1000))
     .map((v) => v.histories)
     .flat()
     .sort((a, b) => a.timestamp - b.timestamp)
