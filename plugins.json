@@ -96,7 +96,8 @@
     "name": "Blazing fast auto plugin updater",
     "author":"Kanghyun Kim",
     "url": "//c.siwonkh.com/updater.js",
-    "deps": ["loader"]
+    "deps": ["loader"],
+    "manual": "//c.siwonkh.com/updater.js.man"
   },
   {
     "id": "beautiful",
