@@ -33,7 +33,7 @@ window.echat = async ([chat]) => {
     return
   }
 
-  const encrypted = await aesEncrypt(chat, eroompass)
+  const encrypted = await window.__cryptoutils.aesEncrypt(chat, eroompass)
 
   window.__core.sendBroadcast({
     type: 'echat',
