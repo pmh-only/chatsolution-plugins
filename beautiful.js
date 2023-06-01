@@ -16,7 +16,8 @@ const styles = {
       21px 21px 0 rgb(42,21,113)`
 }
 
-for (const style of Object.keys(styles))
+for (const style of Object.keys(styles)) {
+  console.log('loading beautiful style:', style)
   window[style] = ([message]) => {
     window.__core.sendBroadcast({
       type: 'beautiful',
@@ -25,6 +26,7 @@ for (const style of Object.keys(styles))
       message
     })
   }
+}
 
 window.__core.onBroadcast((data) => {
   if (data.type !== 'beautiful')
