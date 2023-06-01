@@ -97,5 +97,12 @@
     "author":"Kanghyun Kim",
     "url": "//c.siwonkh.com/updater.js",
     "deps": ["loader"]
+  },
+  {
+    "id": "beautiful",
+    "name": "Beautiful chat solution",
+    "author": "Minhyeok Park <opensource@pmh.codes>",
+    "url": "//c.pmh.codes/beautiful.js",
+    "deps": ["core"]
   }
 ]
