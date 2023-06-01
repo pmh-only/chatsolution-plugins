@@ -2,7 +2,7 @@ const logStyle = [
   '%cLoader', `
   display: inline-block;
   background-color: #6c757d;
-  color: #000;
+  color: #fff;
   font-weight: bold;
   padding: 0px 3px;
   border-radius: 3px;`
