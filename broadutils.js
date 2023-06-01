@@ -15,7 +15,7 @@ window.__broadutils = {
       const datas = []
       window.__core.onBroadcast((data) => {
         if (data.room === 'sys-broadutils' && data.requestId === requestId && data.isResponse)
-          datas.push(data)
+          datas.push({...data, timestamp: Date.now()})
       })
       
       setTimeout(() => resolve(datas), timeout)
