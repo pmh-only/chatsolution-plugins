@@ -141,9 +141,6 @@ void (async () => {
       window.plist = undefined
       window.phelp = undefined
       window.__loaderImported = undefined
-
-      delete plugins
-      delete importedPlugins
     }
   }
 })()
