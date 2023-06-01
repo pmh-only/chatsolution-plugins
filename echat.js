@@ -13,7 +13,10 @@ window.__core.onBroadcast(async (data) => {
       await window.__cryptoutils.aesDecrypt(data.encrypted, eroompass)
         .catch(() => '')
 
-    console.log({ ...data, encrypted: undefined, decrypted, eroomhash: undefined })
+    delete data.eroomhash
+    delete data.encrypted
+
+    console.log({ ...data, decrypted })
   }
 })
 
