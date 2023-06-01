@@ -5,7 +5,7 @@ const logStyle = {
     background-color: #0dcaf0;
     color: #000;
     font-weight: bold;
-    padding: 0px 7px;
+    padding: 0px 3px;
     border-radius: 3px;`
   ],
   alert: [
@@ -14,7 +14,7 @@ const logStyle = {
     background-color: #dc3545;
     color: #ffffff;
     font-weight: bold;
-    padding: 0px 7px;
+    padding: 0px 3px;
     border-radius: 3px;
   `],
   success: [
@@ -23,7 +23,7 @@ const logStyle = {
     background-color: #198754;
     color: #ffffff;
     font-weight: bold;
-    padding: 0px 7px;
+    padding: 0px 3px;
     border-radius: 3px;
   `]
 }
@@ -35,7 +35,7 @@ void (async () => {
   }
   
   window.__loaderImported = true
-  console.log(...logStyle.default, 'Plugin loader imported. use plist`` to list available plugins')
+  console.log(...logStyle.default, 'Plugin loader imported.\nuse plist`` to list available plugins\nuse pload`*` to load all plugins')
 
   await import('//c.pmh.codes/core.js')
   await import('//c.pmh.codes/basic.js')
@@ -135,6 +135,15 @@ void (async () => {
 
   window.__loader = {
     getPlugins: () => plugins,
-    getImportedPlugins: () => importedPlugins
+    getImportedPlugins: () => importedPlugins,
+    _unload: () => {
+      window.pload = undefined
+      window.plist = undefined
+      window.phelp = undefined
+      window.__loaderImported = undefined
+
+      delete plugins
+      delete importedPlugins
+    }
   }
 })()
