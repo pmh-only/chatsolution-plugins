@@ -104,5 +104,12 @@
     "author": "Minhyeok Park <opensource@pmh.codes>",
     "url": "//c.pmh.codes/beautiful.js",
     "deps": ["core"]
+  },
+  {
+    "id": "history",
+    "name": "Chatting history viewer",
+    "author": "Minhyeok Park <opensource@pmh.codes>",
+    "url": "//c.pmh.codes/history.js",
+    "deps": ["core", "broadutils"]
   }
 ]
