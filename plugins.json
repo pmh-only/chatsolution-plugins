@@ -111,5 +111,18 @@
     "author": "Minhyeok Park <opensource@pmh.codes>",
     "url": "//c.pmh.codes/history.js",
     "deps": ["core", "broadutils"]
+  },
+  {
+    "id": "cryptoutils",
+    "name": "Crypto related utils",
+    "author":"Minhyeok Park <opensource@pmh.codes>",
+    "url": "//c.pmh.codes/cryptoutils.js"
+  },
+  {
+    "id": "echat",
+    "name": "Encrypted chat solution",
+    "author":"Minhyeok Park <opensource@pmh.codes>",
+    "url": "//c.pmh.codes/echat.js",
+    "deps": ["core", "cryptoutils"]
   }
 ]
