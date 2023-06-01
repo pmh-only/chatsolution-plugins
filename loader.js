@@ -41,6 +41,7 @@ void (async () => {
       console.log(`Loading all plugins...`)
       for (const plugin of plugins)
         await window.pload([plugin.id], true)
+          .catch(() => {})
 
       return
     }
