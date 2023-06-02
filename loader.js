@@ -23,7 +23,7 @@ void (async () => {
 
   let importedPlugins = ['loader', 'core', 'basic']
   const plugins =
-    await fetch('https:https://c.pmh.codes/plugins.json')
+    await fetch('https://c.pmh.codes/plugins.json')
       .then((res) => res.json())
       .catch(() => ([]))
 
