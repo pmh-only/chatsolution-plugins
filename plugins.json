@@ -3,127 +3,127 @@
     "id": "core",
     "name": "Websocket initialization codes",
     "author": "Minhyeok Park <opensource@pmh.codes>",
-    "url": "//c.pmh.codes/core.js",
-    "manual": "//c.pmh.codes/core.js.man"
+    "url": "https://c.pmh.codes/core.js",
+    "manual": "https://c.pmh.codes/core.js.man"
   },
   {
     "id": "loader",
     "name": "The plugin loader",
     "author": "Minhyeok Park <opensource@pmh.codes>",
-    "url": "//c.pmh.codes/loader.js",
-    "manual": "//c.pmh.codes/loader.js.man"
+    "url": "https://c.pmh.codes/loader.js",
+    "manual": "https://c.pmh.codes/loader.js.man"
   },
   {
     "id": "basic",
     "name": "Basic essential commands",
     "author": "Minhyeok Park <opensource@pmh.codes>",
-    "url": "//c.pmh.codes/basic.js",
-    "manual": "//c.pmh.codes/basic.js.man",
+    "url": "https://c.pmh.codes/basic.js",
+    "manual": "https://c.pmh.codes/basic.js.man",
     "deps": ["core"]
   },
   {
     "id": "alias",
     "name": "Command alias",
     "author": "Minhyeok Park <opensource@pmh.codes>",
-    "url": "//c.pmh.codes/alias.js",
-    "manual": "//c.pmh.codes/alias.js.man",
+    "url": "https://c.pmh.codes/alias.js",
+    "manual": "https://c.pmh.codes/alias.js.man",
     "deps": ["core"]
   },
   {
     "id": "dialog",
     "name": "Very fast chatting UI powered by HTML <dialog> tag",
     "author": "Kanghyun Kim",
-    "url": "//c.siwonkh.com/dialog.js",
+    "url": "https://c.siwonkh.com/dialog.js",
     "deps": ["core", "dialogutils"]
   },
   {
     "id": "notify",
     "name": "Browser chat notification",
     "author": "Kanghyun Kim",
-    "url": "//c.siwonkh.com/notify.js",
+    "url": "https://c.siwonkh.com/notify.js",
     "deps": ["core"]
   },
   {
     "id": "binaryutils",
     "name": "Binary related utils",
     "author": "Minhyeok Park <opensource@pmh.codes>",
-    "url": "//c.pmh.codes/binaryutils.js",
-    "manual": "//c.pmh.codes/binaryutils.js.man"
+    "url": "https://c.pmh.codes/binaryutils.js",
+    "manual": "https://c.pmh.codes/binaryutils.js.man"
   },
   {
     "id": "dialogutils",
     "name": "Dialog related utils",
     "author":"Kanghyun Kim",
-    "url": "//c.siwonkh.com/dialogutils.js"
+    "url": "https://c.siwonkh.com/dialogutils.js"
   },
   {
     "id": "img",
     "name": "Send your images!",
     "author": "Minhyeok Park <opensource@pmh.codes>",
-    "url": "//c.pmh.codes/img.js",
+    "url": "https://c.pmh.codes/img.js",
     "deps": ["core", "binaryutils", "dialogutils"]
   },
   {
     "id": "giphy",
     "name": "Send giphy image!",
     "author": "Taehyun Lim <admin@limtaehyun.dev>",
-    "url": "//c.pmh.codes/giphy.js",
+    "url": "https://c.pmh.codes/giphy.js",
     "deps": ["core", "dialogutils"]
   },
   {
     "id": "pgui",
     "name": "Plugin gui loader",
     "author": "Taehyun Lim <admin@limtaehyun.dev>",
-    "url": "//c.siwonkh.com/pgui.js",
+    "url": "https://c.siwonkh.com/pgui.js",
     "deps": ["core", "loader", "dialogutils"]
   },
   {
     "id": "broadutils",
     "name": "Request some data to all of connected users",
     "author": "Minhyeok Park <opensource@pmh.codes>",
-    "url": "//c.pmh.codes/broadutils.js",
+    "url": "https://c.pmh.codes/broadutils.js",
     "deps": ["core"]
   },
   {
     "id": "echo",
     "name": "Collecting connected clients info",
     "author": "Minhyeok Park <opensource@pmh.codes>",
-    "url": "//c.pmh.codes/echo.js",
+    "url": "https://c.pmh.codes/echo.js",
     "deps": ["core", "broadutils"]
   },
   {
     "id": "updater",
     "name": "Blazing fast auto plugin updater",
     "author":"Kanghyun Kim",
-    "url": "//c.siwonkh.com/updater.js",
+    "url": "https://c.siwonkh.com/updater.js",
     "deps": ["loader"],
-    "manual": "//c.siwonkh.com/updater.js.man"
+    "manual": "https://c.siwonkh.com/updater.js.man"
   },
   {
     "id": "beautiful",
     "name": "Beautiful chat solution",
     "author": "Minhyeok Park <opensource@pmh.codes>",
-    "url": "//c.pmh.codes/beautiful.js",
+    "url": "https://c.pmh.codes/beautiful.js",
     "deps": ["core"]
   },
   {
     "id": "history",
     "name": "Chatting history viewer",
     "author": "Minhyeok Park <opensource@pmh.codes>",
-    "url": "//c.pmh.codes/history.js",
+    "url": "https://c.pmh.codes/history.js",
     "deps": ["core", "broadutils"]
   },
   {
     "id": "cryptoutils",
     "name": "Crypto related utils",
     "author":"Minhyeok Park <opensource@pmh.codes>",
-    "url": "//c.pmh.codes/cryptoutils.js"
+    "url": "https://c.pmh.codes/cryptoutils.js"
   },
   {
     "id": "echat",
     "name": "Encrypted chat solution",
     "author":"Minhyeok Park <opensource@pmh.codes>",
-    "url": "//c.pmh.codes/echat.js",
+    "url": "https://c.pmh.codes/echat.js",
     "deps": ["core", "cryptoutils"]
   }
 ]

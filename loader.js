@@ -17,13 +17,13 @@ void (async () => {
   window.__loaderImported = true
   console.log(...logStyle, 'Plugin loader imported.\nuse plist`` to list available plugins\nuse pload`*` to load all plugins')
 
-  await import('//c.pmh.codes/core.js')
-  await import('//c.pmh.codes/basic.js')
+  await import('https://c.pmh.codes/core.js')
+  await import('https://c.pmh.codes/basic.js')
   console.log(...logStyle, `Core and Plugin "basic" loaded`)
 
   let importedPlugins = ['loader', 'core', 'basic']
   const plugins =
-    await fetch('https://c.pmh.codes/plugins.json')
+    await fetch('https:https://c.pmh.codes/plugins.json')
       .then((res) => res.json())
       .catch(() => ([]))
 
