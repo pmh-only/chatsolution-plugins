@@ -17,8 +17,8 @@ void (async () => {
   window.__loaderImported = true
   console.log(...logStyle, 'Plugin loader imported.\nuse plist`` to list available plugins\nuse pload`*` to load all plugins')
 
-  await import('//c.pmh.codes/core.js')
-  await import('//c.pmh.codes/basic.js')
+  await import('https://c.pmh.codes/core.js')
+  await import('https://c.pmh.codes/basic.js')
   console.log(...logStyle, `Core and Plugin "basic" loaded`)
 
   let importedPlugins = ['loader', 'core', 'basic']
@@ -74,6 +74,8 @@ void (async () => {
       return
     }
 
+    const timestamp = Date.now()
+
     for (const dep of plugin.deps || []) {
       if (importedPlugins.includes(dep)) continue
       const findDep = plugins.find((p) => p.id === dep)
@@ -84,11 +86,11 @@ void (async () => {
       }
       
       importedPlugins.push(findDep.id)
-      await import(findDep.url)
+      await import(`${findDep.url}?${timestamp}`)
     }
     
     importedPlugins.push(plugin.id)
-    await import(plugin.url)
+    await import(`${plugin.url}?${timestamp}`)
     console.log(...logStyle, `Plugin "${pluginId}" + ${plugin.deps?.length ?? 0} dependencies loaded`)
   }
 
