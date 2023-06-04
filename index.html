@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>the c.pmh.codes</title>
+  </head>
+  <body>
+    <main>
+      <h1>c.pmh.codes</h1>
+      <p>the <code>chatsolution.shutupandtakemy.codes</code> client</p>
+
+      <br>
+
+      <h2>이게 뭐죠?</h2>
+      <p><code>c.pmh.codes</code>는 F12에서 채팅을 할 수 있는 플러그인 기반의 스크립트 모음입니다.</p>
+
+      <br>
+
+      <h2>어떻게 쓰나요?</h2>
+      <p>아무 사이트나 상관 없습니다. F12 콘솔을 키고 다음을 입력하세요:</p>
+      <pre>import('//c.pmh.codes')</pre>
+
+      <p>수 초 이내에 채팅창에 연결되며 메시지를 보내거나 받을 수 있습니다!</p>
+      <br>
+      <p>자동으로 로딩된 <code>core.js</code>와 <code>basic.js</code> 플러그인 덕분에 다음 함수로 쉽게 채팅을 보낼 수 있습니다:</p>
+      <pre>chat`보내고 싶은 메시지`</pre>
+
+      <br>
+
+      <h2>플러그인?</h2>
+      <p><code>c.pmh.codes</code>의 채팅 서버는 <a href="https://github.com/pmh-only/chatsolution/blob/main/index.js">단 14줄</a>로  메시지를 전송하는 매우 간단한 기능만 존재합니다.</p>
+
+      <br>
+
+      <p>그럼에도 플러그인 기능을 통해 서버를 짧게 유지하면서도 이미지 보내기, 암호화된 채팅 보내기, 메시지 알림 받기 등 많은 것을 할 수 있습니다.</p>
+      
+      <br>
+
+      <p>플러그인 리스트를 보려면 <code>loader.js</code> 플러그인이 작동하고 있을때 (맨 처음 <code>import</code>문을 작동시키면 자동으로 불러와집니다!) 다음과 같이 입력해보세요:</p>
+      <pre>plist``</pre>
+
+      <br>
+
+      <p>플러그인을 GUI로 관리할 수 있는 <code>pgui</code> 플러그인을 불러와보세요 (<code>pgui</code>는 <code>Kanghyun Kim</code>의 <code>dialogutils</code> 플러그인을 통해 <code>Taehyun Lim</code>이 제작하였습니다!):</p>
+      <pre>pload`pgui`</pre>
+
+      <br>
+      
+      <p>다음 함수를 통해 GUI를 실행시킬 수 있습니다:</p>
+      <pre>pgui``</pre>
+
+      <br>
+
+      <p>모든 플러그인을 불러오려면 다음과 같이 입력하세요:</p>
+      <pre>pload`*`</pre>
+
+      <br>
+
+      <h2>나도 플러그인 만들래요</h2>
+      <p>플러그인을 만드는 법에는 규칙이 없습니다! <a href="https://github.com/pmh-only/chatsolution-plugins">이미 만들어져있는 플러그인들</a>을 보고 아무렇게나 만든 후 다음과 같이 불러와보세요:</p>
+      <pre>import('//정적.호스팅한.도메인/플러그인명.js')</pre>
+
+      <br>
+      <p><code>plist</code>, <code>pload</code>에 등록하고 싶다면 <a href="https://github.com/pmh-only/chatsolution-plugins/blob/main/plugins.json">여기</a>를 수정하고 Pull request를 보내주세요!</p>
+
+      <br>
+
+      <h2>원리를 자세히 알려주세요</h2>
+      <p><code>c.pmh.codes</code>는 다음과 같이 동작합니다.</p>
+
+      <br>
+
+      <ol>
+        <li><code>import('//c.pmh.codes')</code>를 실행하면 <code><a href="/loader.js">loader.js</a></code>가 실행됩니다.</li>
+        <li><code>loader.js</code>는 플러그인 목록을 관리하고, <code><a href="/core.js">core.js</a></code>와 <code><a href="/basic.js">basic.js</a></code>를 실행합니다.</li>
+        <li><code>core.js</code>는 <code>wss://chatsolution.shutupandtakemy.codes</code>에 웹 소켓 연결을 진행합니다. 또한 통신을 수신 받는 함수와 송신하는 함수를 <code>window.__core</code> 객체를 통해 다른 플러그인에게 공개합니다.</li>
+        <li><code>basic.js</code>는 <code>core.js</code>에서 받은 <code>window.__core</code> 객체를 받아 <code>chat`내용`</code> 함수와 <code>author`닉네임`</code> 등 기본적인 함수를 사용자에게 제공하고 들어온 메시지를 출력합니다.</li>
+        <li>여러분이 <code>alias</code> 플러그인을 사용하기 위해 <code>pload`alias`</code>를 실행했다고 가정합시다.</li>
+        <li><code>loader.js</code>는 사용자의 플러그인 사용 명령을 받으면 <code><a href="/plugins.json">plugins.json</a></code>을 보고 <code>alias.js</code>가 필요로 하는 다른 플러그인이 무엇인지 알아본 후 <code><a href="/alias.js">alias.js</a></code>를 실행시킵니다.</li>
+        <li><code>alias.js</code>는 <code>basic.js</code>가 가지고 있는 함수 <code>chat</code>, <code>author</code> 등을 <code>c</code>, <code>a</code> 등으로 재할당합니다.</li>
+        <li>플러그인 중 <code>*utils</code>로 끝나는 플러그인은 다른 플러그인에서 자주 쓰이는 함수를 모아둔 것입니다. (예를 들어 <code>dialogutils</code> 는 F12 콘솔이 아닌 HTML에 메시지를 띄울때 자주 사용되는 함수 모음입니다.)</li>
+      </ol>
+
+      <br>
+
+      <p>이 프로젝트의 목표 1순위는 확장성입니다. 서버를 최대한 건들지 않은 상태로 플러그인들이 잘 결합할 수 있도록 하고자 합니다.</p>
+
+      <br>
+
+      <h2>자주 물어보는 질문</h2>
+      <ul>
+        <li>
+          <p>Q. 왜 만들었어요?</p>
+          <p>A. 갑자기 아이디어가 번뜩여서?</p>
+        </li>
+        <li>
+          <p>Q. <code>함수``</code>문법은 뭐에요?? 이게 언어??</p>
+          <p>A. <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#tagged_templates">Tagged templates</a></code>라는 문법을 활용했어요. 안되는 언어가 있어요??</p>
+        </li>
+        <li>
+          <p>Q. 헉 아무곳에서나 된다면서요.. 어떤 사이트는 안되는데요?</p>
+          <p>A. 스크립트 삽입을 막는 <code><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP">Content Security Policy</a></code> 헤더가 걸린 사이트인 경우가 많아요. 해결법을 연구중에 있어요.</p>
+        </li>
+        <li>
+          <p>Q. 이거 웰케 불편해요?</p>
+          <p>A. 개발자 감성 내려고 만든거라 쪼끔 불편할 수 있어요. <code>alias</code>플러그인이나 <code>dialog</code> 플러그인을 활용해보세요. <del>아니면 디스코드 쓰ㅅ...</del></p>
+        </li>
+        <li>
+          <p>Q. <code>import</code> 문법은 뭐에요?</p>
+          <p>A. 차세대 JavaScript 모듈 시스템인 ESM의 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import">Dynamic import</a></code>문법이에요</p>
+        </li>
+      </ul>
+
+      <br>
+
+      <h2>마지막으로...</h2>
+      <p>이 프로젝트는 <code><a href="https://github.com/pmh-only">Minhyeok Park</a></code>이 시작했으며 지금까지 3명의 기여자가 있습니다.</p>
+      <p>그냥 사용하는것 보다 플러그인을 만들며 기여하는 것이 더 재미있을껍니다. 기여의 힘을 보여주세요.</p>
+    </main>
+
+    <style>
+      html, body, h1, h2, h3, h4, h5, h6, p, ul, ol, li {
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: Arial, Helvetica, sans-serif;
+        height: 100%;
+        background-color: #121212;
+        color: #fafafa;
+      }
+
+      main {
+        padding: 30px 5px;
+        width: 100%;
+        max-width: 400px;
+        line-height: 30px;
+      }
+
+      pre {
+        background-color: #212121;
+        margin: 0;
+        padding: 10px 20px;
+        border-radius: 7px;
+      }
+
+      code {
+        background-color: #212121;
+      }
+
+      a {
+        color: #ff9191;
+        text-decoration: underline solid #ff9191;
+      }
+    </style>
+  </body>
+</html>
