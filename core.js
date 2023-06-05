@@ -1,17 +1,13 @@
-import { io } from 'https://cdn.socket.io/4.6.0/socket.io.esm.min.js'
-
-const socket = io('wss://chatsolution.shutupandtakemy.codes')
+const socket = new WebSocket('wss://chatsolution.shutupandtakemy.codes')
 
 window.__core = {
-  sendBroadcast: (data) => {
-    return new Promise((resolve) => {
-      socket.emit('broadcast', data, () => resolve())
-    })
-  },
-  onBroadcast: (fn = () => {}) => {
-    socket.on('broadcast', fn)
-  },
-  onConnect: (fn = () => {}) => {
-    socket.on('connect', fn)
-  }  
+  sendBroadcast: (data) =>
+    socket.send(btoa(JSON.stringify(data))),
+
+  onBroadcast: (fn = () => {}) =>
+    socket.addEventListener('message', (event) =>
+      fn(JSON.parse(atob(event.data)))),
+
+  onConnect: (fn = () => {}) =>
+    socket.addEventListener('open', fn)
 }
