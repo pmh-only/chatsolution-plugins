@@ -6,7 +6,7 @@ window.__core = {
 
   onBroadcast: (fn = () => {}) =>
     socket.addEventListener('message', (event) =>
-      fn(JSON.parse(event.data))),
+      fn(JSON.parse(event.data.text()))),
 
   onConnect: (fn = () => {}) =>
     socket.addEventListener('open', fn)
