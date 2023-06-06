@@ -8,6 +8,10 @@ const logStyle = [
   border-radius: 3px;`
 ]
 
+if (typeof window === 'undefined') {
+  global.window = {}
+}
+
 void (async () => {
   if (window.__loaderImported === true) {
     console.log(...logStyle, 'Plugin loader already imported.\nplease do not import plugin loader twice')
