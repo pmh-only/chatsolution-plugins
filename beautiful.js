@@ -17,12 +17,12 @@ const styles = {
 }
 
 for (const style of Object.keys(styles))
-  window[style] = ([message]) => {
+  window[style] = (message) => {
     window.__core.sendBroadcast({
       type: 'beautiful',
       room: 'sys-beautiful',
       style,
-      message
+      message: Array.isArray(message) ? message[0] : message
     })
   }
 

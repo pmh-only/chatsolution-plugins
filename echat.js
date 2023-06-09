@@ -20,7 +20,9 @@ window.__core.onBroadcast(async (data) => {
   }
 })
 
-window.eroom = async ([eroom]) => {
+window.eroom = async (eroomR) => {
+  const eroom = Array.isArray(eroomR) ? eroomR[0] : eroomR
+
   if (eroom.length < 5) {
     console.log('Fatal: eroom must be longer than 5 character.')
     return
@@ -30,7 +32,9 @@ window.eroom = async ([eroom]) => {
   eroomhash = await window.__cryptoutils.shaHash(eroom)
 }
 
-window.echat = async ([chat]) => {
+window.echat = async (chatR) => {
+  const chat = Array.isArray(chatR) ? chatR[0] : chatR
+
   if (!eroompass) {
     console.log('Fatal: eroom must be set before send encrypt message. use eroom`<room_id>` to set.')
     return

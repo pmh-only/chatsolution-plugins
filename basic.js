@@ -20,22 +20,22 @@ window.__core.onBroadcast((data) => {
     console.log(data)
 })
 
-window.author = ([authorName]) => {
-  author = authorName
+window.author = (authorName) => {
+  author = Array.isArray(authorName) ? authorName[0] : authorName
   return { message: 'author name changed' }
 }
 
-window.chat = ([message]) =>
+window.chat = (message) =>
   window.__core.sendBroadcast({
     type: 'chat',
     room,
     author,
-    message,
+    message: Array.isArray(message) ? message[0] : message,
     timestamp: Date.now()
   })
 
-window.room = ([roomId]) => {
-  room = roomId || undefined
+window.room = (roomId) => {
+  room = (Array.isArray(roomId) ? roomId[0] : roomId) || undefined
   return { message: 'room changed' }
 }
 
